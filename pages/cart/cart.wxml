@@ -1,0 +1,66 @@
+<!--pages/cart/cart.wxml-->
+<view class="container">
+  <view class="cart-header">
+    <view class="cart-shop-info">
+      <view class="cart-check-container">
+        <icon class="checked"></icon>
+      </view>
+      <text class="cart-header-text">已选商品</text>
+    </view>
+    <text class="cart-batch-edit">编辑</text>
+  </view>
+
+  <view class="cart-list">
+    <view class="cart-item-wrap">
+      <view class="cart-item">
+        <view class="cart-check-container">
+          <icon class="checked"></icon>
+        </view>
+        <image class="cart-item-image" src="/images/banner4.jpg"></image>
+        <view class="cart-info-container">
+          <text class="goods-title">琅琊土豆（洋芋条）</text>
+          <view class="goods-price-num">
+            <view class="goods-price">
+              <text class="goods-price-unit">￥</text>
+              <text class="goods-price-text">19.9</text>
+            </view>
+            <view class="goods-quantity">
+              <view class="quantity-minus quantity-disabled">-</view>
+              <input class="quantity-text" type="number" value="1"></input>
+              <view class="quantity-plus">+</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="cart-item-delete">
+        <text>删除</text>
+      </view>
+    </view>
+  </view>
+  <view class="cart-bar-container">
+    <view class="cart-check-all-container">
+      <icon class="checked"></icon>
+      <text>全选</text>
+    </view>
+    <view class="cart-check-info-container">
+      <view class="cart-check-price-container">
+        <text>总计：</text>
+        <text class="goods-price">￥59.70</text>
+      </view>
+    </view>
+    <view class="bar-buy-container">
+      <text class="text-btn">去结算</text>
+      <text class="text-small">(3)</text>
+    </view>
+  </view>
+  <!-- <view class="cart-empty-box">
+    <view class="cart-empty-tips">
+      <icon class="cart-empty" style="font-size:100px;"></icon>
+      <view class="cart-empty-text">
+        <text>购物车是空的</text>
+      </view>
+    </view>
+    <view class="cart-btn">去逛逛</view>   
+  </view> -->
+     
+</view>

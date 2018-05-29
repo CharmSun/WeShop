@@ -1,13 +1,46 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+  <view class="notice-box">
+    <icon class="notice xsmall" color="white"></icon>
+    <text>公告： 五一大酬宾！！买了就是盆友!!! </text>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="top"></view>
+  <swiper indicator-dots="true" indicator-active-color="#eee" autoplay="true" interval="3000" duration="800">
+    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" width="355" height="150"/>
+        </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="h-gap"></view>
+  <view class="image-box" >
+    <image src="/images/hot.png" />
+  </view>
+  <view class="h-gap"></view>
+  <view class="goods-list" >
+    <view class="goods-box" wx:for="{{goodsList}}" wx:for-item="goods" wx:key="index">
+      <image class="goods-image" src="{{goods.pic_url}}" />
+      <view class="goods-info">
+          <view class="goods-name"><text>{{goods.name}}</text></view>
+          <view class="goods-desc"><text>{{goods.desc}}</text></view>
+          <view class="goods-price">
+            <view class="price-box">
+              <text class="price-unit">￥</text>
+              <text class="price-text">{{goods.price}}</text>
+            </view>
+            <view>
+              <icon class="plus normal"></icon>
+            </view>
+          </view>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <text>—— 少盐洋芋bar 为您服务！ ——</text>
+  </view>
+  <view class="float-cart-box">
+    <view class="badge" style="position:absolute;top:0;right:0;">2</view>
+    <icon class="cart-round cart-icon"></icon>
   </view>
 </view>

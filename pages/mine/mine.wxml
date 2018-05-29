@@ -1,0 +1,45 @@
+<!--pages/mine/mine.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+
+  <view class="nav-list">
+    <view class="nav-item">
+      <view class="nav-title">
+        <icon class="edit"></icon>
+        <text>我的订单</text>
+      </view>
+      <view class="nav-more"><icon class="more" color="gray"></icon></view>
+    </view>
+    <view class="nav-item">
+      <view class="nav-title">
+        <icon class="address"></icon>
+        <text>店铺地址</text>
+      </view>
+      <view class="nav-more"><icon class="more" color="gray"></icon></view>
+    </view>
+    <view class="nav-item">
+      <view class="nav-title">
+        <icon class="service"></icon>
+        <text>联系客服</text>
+      </view>
+      <view class="nav-more"><icon class="more" color="gray"></icon></view>
+    </view>
+    <view class="nav-item">
+      <view class="nav-title">
+        <icon class="shop"></icon>
+        <text>关于我们</text>
+      </view>
+      <view class="nav-more"><icon class="more" color="gray"></icon></view>
+    </view>
+  </view>
+
+  <view class="footer">
+    <button type="warn" bindtap="quit" > 退出登录</button>
+  </view>
+</view>
