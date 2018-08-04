@@ -1,9 +1,16 @@
 /* pages/cart/cart.wxss */
 
 .container {
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.cart-container {
+  width: 100%;
+  overflow-x:hidden;
+  padding-bottom:120rpx;
 }
 
 .goods-price {
@@ -38,7 +45,7 @@
 }
 
 .cart-batch-edit {
-  font-size: 28rpx;
+  font-size: 32rpx;
   color: #a3a3a3;
 }
 
@@ -89,12 +96,12 @@
   color: #ff6200;
 }
 
-.goods-quantity {
+.goods-num-selector {
   color: #666;
   height: 33px;
 }
 
-.goods-quantity view {
+.goods-num-selector view {
   display: inline-block;
   line-height: 20px;
   padding: 5px 0;
@@ -106,12 +113,12 @@
   border: 1rpx solid #999;
 }
 
-.goods-quantity .quantity-minus {
+.goods-num-selector .quantity-minus {
   border-right: none;
   border-radius: 2px 0 0 2px;
 }
 
-.goods-quantity .quantity-text {
+.goods-num-selector .quantity-text {
   border: 1rpx solid #999;
   display: inline-block;
   text-align: center;
@@ -122,7 +129,7 @@
   line-height: 30px;
 }
 
-.goods-quantity .quantity-plus {
+.goods-num-selector .quantity-plus {
   border-left: none;
   border-radius: 0 2px 2px 0;
 }
@@ -194,6 +201,10 @@
   width: 250rpx;
   background-color: #f3514f;
   color: #fff;
+}
+
+.no-selected {
+  background-color: #ccc;
 }
 
 .bar-buy-container .text-btn {

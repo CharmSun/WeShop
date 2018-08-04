@@ -32,12 +32,6 @@
   background-color: #fff;
 }
 
-.side-tab .tab-item .tab-num {
-  position: absolute;
-  right: 5px;
-  top: 5px;
-}
-
 .cate-box {
   flex: 1;
   height: 100%;

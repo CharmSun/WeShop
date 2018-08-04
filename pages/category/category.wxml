@@ -2,9 +2,8 @@
 <view class="container">
   <view class="main-box">
     <scroll-view scroll-y="true" class="side-tab">
-      <view wx:for="{{category}}" wx:key="index" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchTab" class="tab-item {{curIndex === index ? 'tab-item-selected' : ''}}">
+      <view wx:for="{{category}}" wx:key="index" data-index="{{index}}" bindtap="switchTab" class="tab-item {{curTabIdx === index ? 'tab-item-selected' : ''}}">
         <text>{{item.name}}</text>
-        <view class="badge tab-num">2</view>
       </view>
     </scroll-view>
     <scroll-view scroll-y="true" class="cate-box">
@@ -12,35 +11,35 @@
         <text>饮料</text>
       </view>
       <view class="goods-list">
-        <block wx:for="{{goodsList}}" wx:for-index wx:key="idx">
-          <view class="goods-item row">
-            <image class="goods-image" src="{{item.pic_url}}"></image>
-            <view class="goods-info">
-              <view class="goods-name">
-                <text>{{item.name}}</text>
+        <view class="goods-item row" wx:for="{{goodsList}}" wx:key="id">
+          <image class="goods-image" src="{{item.pic}}"></image>
+          <view class="goods-info">
+            <view class="goods-name">
+              <text>{{item.name}}</text>
+            </view>
+            <view class="goods-desc">
+              <text>{{item.desc}}</text>
+            </view>
+            <view class="goods-price">
+              <view class="price-box">
+                <text class="price-unit">￥</text>
+                <text class="price-text">{{item.price}}</text>
               </view>
-              <view class="goods-desc">
-                <text>{{item.desc}}</text>
-              </view>
-              <view class="goods-price">
-                <view class="price-box">
-                  <text class="price-unit">￥</text>
-                  <text class="price-text">{{item.price}}</text>
-                </view>
-                <view class="quantity row">
-                  <icon class="minus"></icon>
-                  <view class="number"><text>2</text></view>
-                  <icon class="plus"></icon>
-                </view>
+              <view class="quantity row">
+                <block wx:if="{{item.num > 0}}">
+                  <icon class="minus" data-index="{{index}}" bindtap="reduceNum"></icon>
+                  <view class="number"><text>{{item.num}}</text></view>
+                </block>  
+                <icon class="plus" data-index="{{index}}" bindtap="increaseNum"></icon>
               </view>
             </view>
           </view>
-        </block>
+        </view>
       </view>
     </scroll-view>
   </view>
-  <view class="float-cart-box">
-    <view class="badge" style="position:absolute;top:0;right:0;">2</view>
+  <view class="float-cart-box" bindtap="navigateToCart">
+    <view class="badge" style="position:absolute;top:0;right:0;">{{cartCount}}</view>
     <icon class="cart-round cart-icon"></icon>
   </view>
 </view>

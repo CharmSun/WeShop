@@ -20,7 +20,7 @@
   <view class="h-gap"></view>
   <view class="goods-list" >
     <view class="goods-box" wx:for="{{goodsList}}" wx:for-item="goods" wx:key="index">
-      <image class="goods-image" src="{{goods.pic_url}}" />
+      <image class="goods-image" src="{{goods.pic}}" />
       <view class="goods-info">
           <view class="goods-name"><text>{{goods.name}}</text></view>
           <view class="goods-desc"><text>{{goods.desc}}</text></view>
@@ -30,7 +30,7 @@
               <text class="price-text">{{goods.price}}</text>
             </view>
             <view>
-              <icon class="plus normal"></icon>
+              <icon class="plus normal" data-index="{{index}}" bindtap="showPanel"></icon>
             </view>
           </view>
       </view>
@@ -39,8 +39,36 @@
   <view class="footer">
     <text>—— 少盐洋芋bar 为您服务！ ——</text>
   </view>
-  <view class="float-cart-box">
-    <view class="badge" style="position:absolute;top:0;right:0;">2</view>
+  <view class="goods-buy-panel-cover" wx:if="{{panel.show}}"></view>
+  <view class="goods-buy-panel-container {{panel.show ? 'goods-buy-panel-show' : ''}}">
+    <view class="buy-panel-info-container">
+      <image class="buy-panel-image" src="{{panel.goods.pic}}"></image>
+      <view class="buy-panel-info">
+        <text class="buy-panel-name">{{panel.goods.name}}</text>
+        <view class="buy-panel-price">
+          <text>￥{{panel.goods.price}}</text>
+        </view>
+      </view>
+      <view class="buy-panel-close" bindtap="closePanel">
+        <icon class="close" color="gray"></icon>
+      </view>
+    </view>
+    <view class="buy-panel-num-container">
+      <view class="buy-panel-num-text">
+        <text>购买数量：</text>
+      </view>
+      <view class="goods-num-selector">
+        <view class="quantity-minus {{panel.goodsNum==1? 'quantity-disabled' : ''}}" bindtap="reduceNum" >-</view>
+        <input class="quantity-text" type="number" value="{{panel.goodsNum}}" bindinput="changeNumInput" ></input>
+        <view class="quantity-plus {{panel.goodsNum==99? 'quantity-disabled' : ''}}" bindtap="increaseNum">+</view>
+      </view>
+    </view>
+    <view class="buy-panel-next" bindtap="addToCart">
+      <text>加入购物车</text>
+    </view>
+  </view>
+  <view class="float-cart-box" bindtap="navigateToCart">
+    <view class="badge" style="position:absolute;top:0;right:0;">{{cartCount}}</view>
     <icon class="cart-round cart-icon"></icon>
   </view>
 </view>
