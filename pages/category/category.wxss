@@ -79,40 +79,25 @@
   color: #a3a3a3;
 }
 
-.goods-price {
+.goods-price-num {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.goods-price .price-box .price-unit {
+.goods-price .goods-price-unit {
   color: #ff6200;
   font-size: 26rpx;
 }
 
-.goods-price .price-box .price-text {
+.goods-price .goods-price-text {
   color: #ff6200;
   font-size: 32rpx;
 }
 
-.quantity .number {
+.goods-num .number {
   font-size: 26rpx;
   min-width: 25px;
   text-align: center;
 }
 
-.float-cart-box {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-}
-
-.float-cart-box .cart-icon {
-  font-size: 46px;
-  background-color: white;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  box-shadow: 0 0 5px gray;
-}

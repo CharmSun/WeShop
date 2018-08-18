@@ -2,12 +2,12 @@
 <view class="container" wx:if="{{goodsList.length === 0}}">
    <view class="cart-empty-box">
     <view class="cart-empty-tips">
-      <icon class="cart-empty" style="font-size:100px;"></icon>
+      <icon class="icon-cart-empty" style="font-size:80px;"></icon>
       <view class="cart-empty-text">
         <text>购物车是空的</text>
       </view>
     </view>
-    <view class="cart-btn" bindtap="navigateToGoods">去逛逛</view>   
+    <button class="cart-btn" type="primary" bindtap="navigateToGoods">去逛逛</button> 
   </view> 
 </view>
 <view wx:else class="cart-container">
@@ -22,20 +22,20 @@
     <view class="cart-item-wrap" wx:for="{{goodsList}}" wx:key="index" style="left: -{{item.left}}px" data-index="{{index}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE">
       <view class="cart-item">
         <view class="cart-check-container">
-          <icon class="{{item.selected ? 'checked' : 'check'}}" color="{{item.selected ? '' : 'gray'}}" bindtap="selectItem" data-index="{{index}}"></icon>
+          <icon class="{{item.selected ? 'icon-checked' : 'icon-round'}}" color="{{item.selected ? '' : 'gray'}}" bindtap="selectItem" data-index="{{index}}"></icon>
         </view>
         <image class="cart-item-image" src="{{item.pic}}"></image>
         <view class="cart-info-container">
-          <text class="goods-title">{{item.name}}</text>
+          <text class="goods-name">{{item.name}}</text>
           <view class="goods-price-num">
             <view class="goods-price">
               <text class="goods-price-unit">￥</text>
               <text class="goods-price-text">{{item.price}}</text>
             </view>
             <view class="goods-num-selector">
-              <view class="quantity-minus {{item.num<=1? 'quantity-disabled' : ''}}" data-index="{{index}}" bindtap="reduceNum" >-</view>
-              <input class="quantity-text" type="number" data-index="{{index}}" value="{{item.num}}" bindinput="changeNumInput" ></input>
-              <view class="quantity-plus {{item.num>=99? 'quantity-disabled' : ''}}" data-index="{{index}}" bindtap="increaseNum">+</view>
+              <view class="num-minus {{item.num<=1? 'num-disabled' : ''}}" data-index="{{index}}" bindtap="reduceNum" >-</view>
+              <input class="num-text" type="number" data-index="{{index}}" value="{{item.num}}" bindinput="changeNumInput" ></input>
+              <view class="num-plus {{item.num>=99? 'num-disabled' : ''}}" data-index="{{index}}" bindtap="increaseNum">+</view>
             </view>
           </view>
         </view>
@@ -47,7 +47,7 @@
   </view>
   <view class="cart-bar-container">
     <view class="cart-check-all-container" bindtap="selectAll" >
-      <icon class="{{allSelected ? 'checked' : 'check'}}" color="{{allSelected ? '' : 'gray'}}" ></icon>
+      <icon class="{{allSelected ? 'icon-checked' : 'icon-round'}}" color="{{allSelected ? '' : 'gray'}}" ></icon>
       <text>全选</text>
     </view>
 

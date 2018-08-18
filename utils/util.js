@@ -14,6 +14,29 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
-module.exports = {
-  formatTime: formatTime
+// 显示繁忙提示
+const showBusy = text => wx.showToast({
+  title: text,
+  icon: 'loading',
+  duration: 10000
+})
+
+// 显示成功提示
+const showSuccess = text => wx.showToast({
+  title: text,
+  icon: 'success'
+})
+
+// 显示失败提示
+const showModel = (title, content) => {
+  wx.hideToast();
+
+  wx.showModal({
+    title,
+    content: JSON.stringify(content),
+    showCancel: false
+  })
 }
+
+module.exports = { formatTime, showBusy, showSuccess, showModel }
+

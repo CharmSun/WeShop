@@ -11,7 +11,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.6",
+	"libVersion": "2.2.2",
 	"appid": "wx4e373d8d46bd5f6b",
 	"projectname": "WeShop",
 	"isGameTourist": false,

@@ -39,6 +39,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    baseUrl: 'https://www.easy-mock.com/mock/5b71064aad65f917b568cebe/weshop'
   }
 })

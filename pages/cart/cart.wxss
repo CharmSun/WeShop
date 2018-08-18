@@ -113,12 +113,12 @@
   border: 1rpx solid #999;
 }
 
-.goods-num-selector .quantity-minus {
+.goods-num-selector .num-minus {
   border-right: none;
   border-radius: 2px 0 0 2px;
 }
 
-.goods-num-selector .quantity-text {
+.goods-num-selector .num-text {
   border: 1rpx solid #999;
   display: inline-block;
   text-align: center;
@@ -129,12 +129,12 @@
   line-height: 30px;
 }
 
-.goods-num-selector .quantity-plus {
+.goods-num-selector .num-plus {
   border-left: none;
   border-radius: 0 2px 2px 0;
 }
 
-.quantity-disabled {
+.num-disabled {
   background: #f8f8f8;
   color: #bbb;
   border-color: #e8e8e8 !important;
@@ -233,13 +233,6 @@
 }
 
 .cart-btn {
-  font-size: 32rpx;
-  color: #fff;
-  background: #1aad19;
-  border-radius: 6px;
-  width: 400rpx;
-  height: 80rpx;
-  line-height: 80rpx;
-  text-align: center;
-  margin: 100rpx auto;
+  width: 600rpx;
+  margin-top: 100rpx;
 }

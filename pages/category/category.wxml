@@ -20,26 +20,30 @@
             <view class="goods-desc">
               <text>{{item.desc}}</text>
             </view>
-            <view class="goods-price">
-              <view class="price-box">
-                <text class="price-unit">￥</text>
-                <text class="price-text">{{item.price}}</text>
+            <view class="goods-price-num">
+              <view class="goods-price">
+                <text class="goods-price-unit">￥</text>
+                <text class="goods-price-text">{{item.price}}</text>
               </view>
-              <view class="quantity row">
+              <view class="goods-num row">
                 <block wx:if="{{item.num > 0}}">
-                  <icon class="minus" data-index="{{index}}" bindtap="reduceNum"></icon>
+                  <icon class="icon-minus" data-index="{{index}}" bindtap="reduceNum"></icon>
                   <view class="number"><text>{{item.num}}</text></view>
                 </block>  
-                <icon class="plus" data-index="{{index}}" bindtap="increaseNum"></icon>
+                <icon class="icon-add" data-index="{{index}}" bindtap="increaseNum"></icon>
               </view>
             </view>
           </view>
         </view>
       </view>
+      <view class="footer">
+        <text>—— 我是有底线的 ——</text>
+      </view>
     </scroll-view>
   </view>
+  
   <view class="float-cart-box" bindtap="navigateToCart">
     <view class="badge" style="position:absolute;top:0;right:0;">{{cartCount}}</view>
-    <icon class="cart-round cart-icon"></icon>
+    <view class="row cart-icon"><icon class="icon-cart1 normal" color="white"></icon></view>
   </view>
 </view>

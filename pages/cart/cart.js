@@ -5,30 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goodsList: [{
-      "id": '01001',
-      "name": "琅琊土豆(洋芋条条)",
-      "desc": "这是我们店活下去的源泉！没有比这个更迷人的土豆了！",
-      "price": "7",
-      "pic": "/images/banner4.jpg",
-      "num": 1,
-      "left": 0,
-      "selected": true
-    }, {
-      "id": '01002',
-      "name": "全家福爆多冰粉",
-      "desc": "这是我们店活下去的源泉！没有比这个更迷人的土豆了！",
-      "pic": "/images/banner4.jpg",
-      "price": "10",
-      "num": 1,
-      "left": 0,
-      "selected": true
-    }],
+    goodsList: [],
     batchEdit: false,
     allSelected: true,
     noSelected: false,
-    totalCount: 2,
-    totalPrice: 17
+    totalCount: 0,
+    totalPrice: 0
   },
 
   /**

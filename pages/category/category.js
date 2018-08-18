@@ -1,40 +1,14 @@
 // pages/category/category.js
+var app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    category: [
-      { name: '热销', id: 'cate1' },
-      { name: '镇店之宝', id: 'cate2' },
-      { name: '煎饼花痴', id: 'cate3' },
-      { name: '冰粉加料', id: 'cate4' },
-      { name: '洋芋土豆', id: 'cate5' },
-      { name: '完美搭配', id: 'cate6' }
-    ],
-    goodsList: [{
-      "id": '01001',
-      "name": "琅琊土豆(洋芋条条)",
-      "desc": "这是我们店活下去的源泉！没有比这个更迷人的土豆了！",
-      "price": "7",
-      "pic": "/images/banner4.jpg",
-      "num": 0
-    }, {
-      "id": '01002',
-      "name": "全家福爆多冰粉",
-      "desc": "这是我们店活下去的源泉！没有比这个更迷人的土豆了！",
-      "pic": "/images/banner4.jpg",
-      "price": "10",
-      "num": 0
-    }, {
-      "id": '01003',
-      "name": "全家福爆多料煎饼",
-      "desc": "这是我们店活下去的源泉！没有比这个更迷人的土豆了！",
-      "price": "15",
-      "pic": "/images/banner4.jpg",
-      "num": 0
-    }],
+    category: [],
+    goodsList: [],
     curTabIdx: 0,
     cartCount: 0
   },
@@ -43,14 +17,45 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    wx.request({
+      url: `${app.globalData.baseUrl}/cate`,
+      success: res => {
+        if (res.data.code === 0) {
+          const data = res.data.data;
+          this.setData({
+            category: data.category
+          });
+          if (data.category && data.category.length > 0){
+            this.getCateGoods(data.category[0].id);
+          }
+        }
+      }
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  getCateGoods: function (cateId) {
+    wx.request({
+      url: `${app.globalData.baseUrl}/cate/goodsList`,
+      data: {cateId: cateId},
+      success: res => {
+        if (res.data.code === 0) {
+          var list = res.data.data.goodsList;
+          var cartInfo = wx.getStorageSync('cartInfo');
+          for (var i = 0; i < list.length; i++) {
+            list[i].num = 0;
+            for (var j = 0; j < cartInfo.list.length; j++) {
+              var item = cartInfo.list[j];
+              if (list[i].id == item.id) {
+                list[i].num = item.num;
+              }
+            }
+          }
+          this.setData({
+            goodsList: list
+          });
+        }
+      }
+    });
   },
 
   /**
@@ -70,15 +75,17 @@ Page({
       }
     }
     this.setData({
-      goodsList: this.data.goodsList,
+      goodsList: list,
       cartCount: cartInfo.cartCount
     });
   },
 
   switchTab(e) {
+    var index = e.currentTarget.dataset.index;
     this.setData({
-      curTabIdx: e.currentTarget.dataset.index
+      curTabIdx: index
     });
+    this.getCateGoods(this.data.category[index].id);
   },
 
   increaseNum: function(e) {

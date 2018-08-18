@@ -60,11 +60,18 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  callService: function () {
+    wx.makePhoneCall({
+      phoneNumber: '13400000000' 
+    });
+  },
+
+  showAbout: function () {
+    wx.showModal({
+      title: '关于我们',
+      content: '小店小本经营，概不赊账，谢谢大家支持！！',
+      showCancel: false
+    });
   },
 
   /**
